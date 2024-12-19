@@ -1,0 +1,19 @@
+current directory: C:/cloud-app/vendor/bundle/ruby/3.3.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+C:/Ruby33-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: C:/cloud-app/vendor/bundle/ruby/3.3.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20241214-14512-ev1zwx sitelibdir\=./.gem.20241214-14512-ev1zwx clean
+
+current directory: C:/cloud-app/vendor/bundle/ruby/3.3.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20241214-14512-ev1zwx sitelibdir\=./.gem.20241214-14512-ev1zwx
+generating websocket_mask-x64-mingw-ucrt.def
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: C:/cloud-app/vendor/bundle/ruby/3.3.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20241214-14512-ev1zwx sitelibdir\=./.gem.20241214-14512-ev1zwx install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20241214-14512-ev1zwx
+
+current directory: C:/cloud-app/vendor/bundle/ruby/3.3.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20241214-14512-ev1zwx sitelibdir\=./.gem.20241214-14512-ev1zwx clean

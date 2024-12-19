@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"profile:ETI"2Selenium::WebDriver::Firefox::Options#profile;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"RNOTE: special handling of 'profile' to validate when set instead of when used;T:
+@fileI".lib/selenium/webdriver/firefox/options.rb;T:0@omit_headings_from_table_of_contents_below0F@I"*Selenium::WebDriver::Firefox::Options;TcRDoc::NormalClass0

@@ -1,0 +1,5 @@
+<div class="comment">
+  <p><strong><%= comment.user.email %></strong>: <%= comment.body %></p>
+  <%= link_to 'Edit', edit_post_comment_path(comment.post, comment) if comment.user == current_user %>
+  <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' } if comment.user == current_user %>
+</div>
