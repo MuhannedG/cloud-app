@@ -1,4 +1,4 @@
-require 'rails_helper'
+
 # a factory to test the post creation logic
 FactoryBot.define do
   factory :post do

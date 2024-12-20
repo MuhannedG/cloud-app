@@ -1,4 +1,4 @@
-require 'rails_helper'
+
 # a factgory to test the user creation logic
 FactoryBot.define do
   factory :user do

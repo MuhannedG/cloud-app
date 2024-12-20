@@ -12,6 +12,8 @@ gem "fiddle"
 gem "ostruct"
 gem "devise"
 gem "bcrypt", "~> 3.1.7"
+gem "bootstrap", "~> 5.3.0"
+gem "sassc-rails", ">= 2.1.0"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 group :development, :test do

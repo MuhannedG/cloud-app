@@ -1,4 +1,4 @@
-require 'rails_helper'
+
 # factory to test the comment logic
 FactoryBot.define do
   factory :comment do

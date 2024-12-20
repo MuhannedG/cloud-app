@@ -19,6 +19,12 @@ module CloudApp
     config.paths.add "spec", eager_load: false, autoload: false
     config.autoloader = :zeitwerk
     config.eager_load_paths.reject! { |path| path =~ /spec|test/ }
+    if defined?(FactoryBot)
+      FactoryBot.definition_file_paths = [] if Rails.env.development?
+    end    
+    config.after_initialize do
+      FactoryBot.reload if Rails.env.test?
+    end
     
     # Configuration for the application, engines, and railties goes here.
     #
