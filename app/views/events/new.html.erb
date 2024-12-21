@@ -1,0 +1,30 @@
+<h1 style="font-family: Arial, sans-serif; color: #333; text-align: center; margin-bottom: 20px;">Create New Event</h1>
+
+<div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif;">
+  <%= form_with model: @event, local: true do |form| %>
+    <div style="margin-bottom: 15px;">
+      <%= form.label :title, "Event Title", style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+      <%= form.text_field :title, style: "width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" %>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <%= form.label :description, "Event Description", style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+      <%= form.text_area :description, rows: 5, style: "width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" %>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <%= form.label :date, "Event Date and Time", style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+      <%= form.datetime_select :date, style: "width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" %>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <%= form.label :location, "Event Location", style: "font-weight: bold; display: block; margin-bottom: 5px;" %>
+      <%= form.text_field :location, style: "width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" %>
+    </div>
+
+    <div style="text-align: center;">
+      <%= form.submit 'Create Event', style: "padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 16px;" %>
+    </div>
+  <% end %>
+</div>
+

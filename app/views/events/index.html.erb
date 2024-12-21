@@ -1,0 +1,33 @@
+<h1 style="font-family: Arial, sans-serif; color: #333; text-align: center; margin-bottom: 20px;"> Events</h1>
+
+<div style="text-align: center; margin-bottom: 20px;">
+  <%= link_to 'Add New Event', new_event_path, style: "padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 16px;" %>
+</div>
+
+<% if @events.any? %>
+  <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-family: Arial, sans-serif; font-size: 16px;">
+    <thead>
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Title</th>
+        <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Date</th>
+        <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Location</th>
+        <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;"><%= link_to event.title, event_path(event), style: "color: #007bff; text-decoration: none;" %></td>
+          <td style="border: 1px solid #ddd; padding: 10px;"><%= event.date.strftime('%B %d, %Y %I:%M %p') if event.date %></td>
+          <td style="border: 1px solid #ddd; padding: 10px;"><%= event.location %></td>
+          <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">
+            <%= link_to 'Edit', edit_event_path(event), style: "padding: 5px 10px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px;" %>
+            <%= link_to 'Delete', event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, style: "padding: 5px 10px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px;" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p style="text-align: center; font-family: Arial, sans-serif; font-size: 18px; color: #555;">No events available at the moment. <%= link_to 'Add a new event!', new_event_path, style: "color: #007bff; text-decoration: none;" %></p>
+<% end %>

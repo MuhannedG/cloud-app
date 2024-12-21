@@ -1,47 +1,62 @@
-<p style="color: green;"><%= notice %></p>
+<p style="color: green; font-weight: bold; margin-bottom: 20px;">
+  <%= notice %>
+</p>
 
 <!-- Post Details -->
-<article>
-  <header>
-    <h1><%= @post.title %></h1>
-    <p><strong>Posted by:</strong> <%= @post.user.email %></p>
+<article style="margin-bottom: 40px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+  <header style="margin-bottom: 20px;">
+    <h1 style="font-size: 2rem; color: #333; margin-bottom: 10px;">
+      <%= @post.title %>
+    </h1>
+    <p style="font-size: 1rem; color: #555;">
+      <strong style="color: #007BFF;">Posted by:</strong> <%= @post.user.email %>
+    </p>
   </header>
   <section>
-    <p><%= @post.body %></p>
+    <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+      <%= @post.body %>
+    </p>
   </section>
 </article>
 
 <!-- Comments Section -->
-<section>
-  <h2>Comments</h2>
+<section style="margin-bottom: 40px;">
+  <h2 style="font-size: 1.5rem; color: #333; margin-bottom: 20px;">
+    Comments
+  </h2>
   <% if @post.comments.any? %>
-    <ul>
+    <ul style="list-style: none; padding: 0; margin: 0;">
       <%= render @post.comments %>
     </ul>
   <% else %>
-    <p>No comments yet. Be the first to comment!</p>
+    <p style="font-size: 1rem; color: #555;">No comments yet. Be the first to comment!</p>
   <% end %>
 
   <% if user_signed_in? %>
-    <h3>Add a comment:</h3>
+    <h3 style="font-size: 1.25rem; color: #333; margin-top: 20px;">
+      Add a comment:
+    </h3>
     <%= form_with(model: [@post, Comment.new], local: true) do |form| %>
-      <div class="field">
-        <%= form.text_area :body, placeholder: "Write your comment here...", rows: 4, class: "comment-textarea" %>
+      <div style="margin-bottom: 15px;">
+        <%= form.text_area :body, placeholder: "Write your comment here...", rows: 4, style: "width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" %>
       </div>
       <div>
-        <%= form.submit "Add Comment", class: "btn btn-primary" %>
+        <%= form.submit "Add Comment", style: "background-color: #007BFF; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;" %>
       </div>
     <% end %>
   <% else %>
-    <p><%= link_to "Sign in", new_user_session_path %> to comment.</p>
+    <p style="font-size: 1rem; color: #555;">
+      <%= link_to "Sign in", new_user_session_path, style: "color: #007BFF; text-decoration: none;" %> to comment.
+    </p>
   <% end %>
 </section>
 
 <!-- Post Controls -->
-<footer>
-  <div class="post-controls">
-    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-secondary" %>
-    <%= link_to "Back to posts", posts_path, class: "btn btn-secondary" %>
-    <%= button_to "Destroy this post", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<footer style="text-align: center; margin-top: 40px;">
+  <div style="display: inline-block;">
+    <%= link_to "Edit this post", edit_post_path(@post), style: "display: inline-block; padding: 10px 20px; margin: 5px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;" %>
+    <%= link_to "Back to posts", posts_path, style: "display: inline-block; padding: 10px 20px; margin: 5px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;" %>
+    <%= button_to "Destroy this post", @post, method: :delete, data: { confirm: "Are you sure?" }, style: "display: inline-block; padding: 10px 20px; margin: 5px; background-color: #dc3545; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;" %>
   </div>
 </footer>
+

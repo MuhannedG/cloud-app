@@ -1,16 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green; font-weight: bold; margin-bottom: 10px;">
+  <%= notice %>
+</p>
 
 <% content_for :title, "Comments" %>
 
-<h1>Comments</h1>
+<h1 style="font-size: 2rem; color: #333; text-align: center; margin-bottom: 20px;">
+  Comments
+</h1>
 
-<div id="comments">
+<div id="comments" style="max-width: 800px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
   <% @comments.each do |comment| %>
-    <%= render comment %>
-    <p>
-      <%= link_to "Show this comment", comment %>
-    </p>
+    <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+      <%= render comment %>
+      <p style="margin: 10px 0;">
+        <%= link_to "Show this comment", comment, style: "text-decoration: none; color: #007BFF; font-weight: bold;" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New comment", new_comment_path %>
+<div style="text-align: center; margin-top: 20px;">
+  <%= link_to "New comment", new_comment_path, style: "display: inline-block; padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;" %>
+</div>

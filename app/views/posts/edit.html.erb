@@ -1,12 +1,15 @@
 <% content_for :title, "Editing post" %>
 
-<h1>Editing post</h1>
+<h1 style="font-size: 2rem; color: #333; text-align: center; margin-bottom: 20px;">
+  Editing Post
+</h1>
 
-<%= render "form", post: @post %>
-
-<br>
-
-<div>
-  <%= link_to "Show this post", @post %> |
-  <%= link_to "Back to posts", posts_path %>
+<div style="max-width: 600px; margin: 20px auto;">
+  <%= render "form", post: @post %>
 </div>
+
+<div style="text-align: center; margin-top: 20px; font-size: 1rem;">
+  <%= link_to "Show this post", @post, style: "text-decoration: none; color: #007BFF; font-weight: bold; margin-right: 15px;" %>
+  <%= link_to "Back to posts", posts_path, style: "text-decoration: none; color: #28a745; font-weight: bold;" %>
+</div>
+

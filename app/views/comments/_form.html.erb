@@ -1,8 +1,10 @@
 <%= form_with(model: comment, class: "needs-validation", novalidate: true) do |form| %>
   <% if comment.errors.any? %>
     <div class="alert alert-danger">
-      <h4 class="alert-heading"><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h4>
-      <ul>
+      <h4 class="alert-heading">
+        <%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:
+      </h4>
+      <ul class="mb-0">
         <% comment.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -10,22 +12,22 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :body, class: "form-label" %>
-    <%= form.text_area :body, class: "form-control", rows: 3 %>
+  <div class="form-group mb-3">
+    <%= form.label :body, "Comment Body", class: "form-label fw-bold" %>
+    <%= form.text_area :body, class: "form-control", rows: 4, placeholder: "Enter your comment..." %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :post_id, class: "form-label" %>
-    <%= form.text_field :post_id, class: "form-control" %>
+  <div class="form-group mb-3">
+    <%= form.label :post_id, "Post ID", class: "form-label fw-bold" %>
+    <%= form.text_field :post_id, class: "form-control", placeholder: "Enter the post ID" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :user_id, class: "form-label" %>
-    <%= form.text_field :user_id, class: "form-control" %>
+  <div class="form-group mb-3">
+    <%= form.label :user_id, "User ID", class: "form-label fw-bold" %>
+    <%= form.text_field :user_id, class: "form-control", placeholder: "Enter your user ID" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.submit "Submit Comment", class: "btn btn-primary" %>
+  <div class="form-group d-flex justify-content-end">
+    <%= form.submit "Submit Comment", class: "btn btn-primary btn-lg px-4" %>
   </div>
 <% end %>

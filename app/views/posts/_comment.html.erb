@@ -1,5 +1,9 @@
-<div class="comment">
-  <p><strong><%= comment.user.email %></strong>: <%= comment.body %></p>
-  <%= link_to 'Edit', edit_post_comment_path(comment.post, comment) if comment.user == current_user %>
-  <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' } if comment.user == current_user %>
+<div style="padding: 10px; margin-bottom: 15px; border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+  <p style="margin: 0; font-size: 1rem; color: #333;">
+    <strong style="color: #007BFF;"><%= comment.user.email %></strong>: <%= comment.body %>
+  </p>
+  <div style="margin-top: 5px;">
+    <%= link_to 'Edit', edit_post_comment_path(comment.post, comment), style: "text-decoration: none; color: #28a745; font-weight: bold; margin-right: 10px;" if comment.user == current_user %>
+    <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' }, style: "text-decoration: none; color: #dc3545; font-weight: bold;" if comment.user == current_user %>
+  </div>
 </div>

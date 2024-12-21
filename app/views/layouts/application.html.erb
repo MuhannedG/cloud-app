@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Cloud App" %></title>
+    <title><%= content_for(:title) || "College Hub" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -28,21 +28,38 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Cloud App</a>
+        <a class="navbar-brand" href="#">College Hub</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <%= link_to "Discussions", posts_path, class: "nav-link active" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <%= link_to "Events", events_path, class: "nav-link" %> <!-- Placeholder -->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <%= link_to "Jobs", "#", class: "nav-link" %> <!-- Placeholder -->
             </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <span class="navbar-text me-3">Welcome, <%= current_user.email %>!</span>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Log In", new_user_session_path, class: "btn btn-primary me-2" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success" %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
