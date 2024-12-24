@@ -1,4 +1,4 @@
-<% content_for :title, "New comment" %>
+<% content_for :title, "New Comment" %>
 
 <h1 style="font-size: 2rem; color: #333; text-align: center; margin-bottom: 20px;">
   New Comment
@@ -9,6 +9,6 @@
 </div>
 
 <div style="text-align: center; margin-top: 20px;">
-  <%= link_to "Back to comments", comments_path, style: "display: inline-block; padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;" %>
+  <%= link_to "Back to comments", post_comments_path(@post), style: "display: inline-block; padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;" %>
 </div>
 

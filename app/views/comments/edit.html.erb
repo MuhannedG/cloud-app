@@ -1,7 +1,7 @@
-<% content_for :title, "Editing comment" %>
+<% content_for :title, "Editing Comment" %>
 
 <h1 style="font-size: 2rem; color: #333; text-align: center; margin-bottom: 20px;">
-  Editing Comment
+  Comment Editing
 </h1>
 
 <div style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
@@ -9,11 +9,15 @@
 </div>
 
 <div style="text-align: center; margin-top: 20px;">
-  <a href="<%= url_for(@comment) %>" style="text-decoration: none; color: #007BFF; font-weight: bold; margin-right: 10px;">
-    Show this comment
+  <!-- Link to show the post containing this comment -->
+  <a href="<%= post_path(@post) %>" 
+     style="text-decoration: none; color: #007BFF; font-weight: bold; margin-right: 10px;">
+    Show Post
   </a>
   |
-  <a href="<%= comments_path %>" style="text-decoration: none; color: #28a745; font-weight: bold; margin-left: 10px;">
-    Back to comments
+  <!-- Link to return to the comments section for this post -->
+  <a href="<%= post_path(@post) %>#comments" 
+     style="text-decoration: none; color: #28a745; font-weight: bold; margin-left: 10px;">
+    Back to Comments
   </a>
 </div>

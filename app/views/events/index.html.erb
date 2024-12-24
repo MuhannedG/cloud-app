@@ -22,7 +22,6 @@
           <td style="border: 1px solid #ddd; padding: 10px;"><%= event.location %></td>
           <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">
             <%= link_to 'Edit', edit_event_path(event), style: "padding: 5px 10px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px;" %>
-            <%= link_to 'Delete', event_path(event), method: :delete, data: { confirm: 'Are you sure?' }, style: "padding: 5px 10px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px;" %>
           </td>
         </tr>
       <% end %>

@@ -5,6 +5,7 @@ class User < ApplicationRecord
   # one to many relationship declartions for posts and commnents
   has_many :posts, dependent: :destroy
   has_many :commetns, dependent: :destroy
+  has_many :events, dependent: :destroy
   # devise modules to authnticate users
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

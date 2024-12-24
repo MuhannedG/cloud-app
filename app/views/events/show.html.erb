@@ -1,20 +1,31 @@
-<h1 style="text-align: center; font-family: Arial, sans-serif; color: #333;">Event Details</h1>
+<h1 style="text-align: center; font-family: Arial, sans-serif; color: #333; margin-bottom: 20px;">Event Details</h1>
 
 <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif;">
-  <h2 style="color: #007bff; margin-bottom: 10px;"><%= @event.title %></h2>
-  <p style="margin-bottom: 10px; font-size: 16px; color: #555;">
-    <strong>Description:</strong> <%= @event.description %>
+  <h2 style="color: #007bff; margin-bottom: 15px; font-size: 24px; font-weight: bold;"><%= @event.title %></h2>
+  <p style="margin-bottom: 15px; font-size: 16px; color: #555; line-height: 1.5;">
+    <strong style="color: #333;">Description:</strong> <%= @event.description %>
   </p>
-  <p style="margin-bottom: 10px; font-size: 16px; color: #555;">
-    <strong>Date:</strong> <%= @event.date.strftime('%B %d, %Y %I:%M %p') if @event.date %>
+  <p style="margin-bottom: 15px; font-size: 16px; color: #555; line-height: 1.5;">
+    <strong style="color: #333;">Date:</strong> <%= @event.date.strftime('%B %d, %Y %I:%M %p') if @event.date %>
   </p>
-  <p style="margin-bottom: 10px; font-size: 16px; color: #555;">
-    <strong>Location:</strong> <%= @event.location %>
+  <p style="margin-bottom: 15px; font-size: 16px; color: #555; line-height: 1.5;">
+    <strong style="color: #333;">Location:</strong> <%= @event.location %>
   </p>
 
-  <div style="text-align: center; margin-top: 20px;">
-    <%= link_to 'Edit Event', edit_event_path(@event), style: "padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; border: none;" %>
-    <%= link_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?', turbo: false }, style: "padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; border: none;" %>
-    <%= link_to 'Back to Events', events_path, style: "padding: 10px 20px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; border: none;" %>
-  </div>
+ <div style="text-align: center; margin-top: 25px; display: flex; justify-content: center; gap: 10px;">
+  <%= link_to 'Edit Event', edit_event_path(@event), style: "padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; border: none; cursor: pointer;" %>
+  <%= button_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?', turbo: false }, style: "padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; border: none; cursor: pointer;" %>
+  <%= link_to 'Back to Events', events_path, style: "padding: 10px 20px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; border: none; cursor: pointer;" %>
+</div>
+
+  <% if @event.errors.any? %>
+    <div style="margin-top: 20px; padding: 15px; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 5px; color: #721c24;">
+      <h4 style="margin-bottom: 10px; font-size: 18px;">Could not save the event:</h4>
+      <ul style="padding-left: 20px; margin: 0;">
+        <% @event.errors.full_messages.each do |msg| %>
+          <li style="font-size: 16px; margin-bottom: 5px;"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>

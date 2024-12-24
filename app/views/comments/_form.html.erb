@@ -1,12 +1,12 @@
-<%= form_with(model: comment, class: "needs-validation", novalidate: true) do |form| %>
+<%= form_with(model: [@post, comment], class: "needs-validation", novalidate: true) do |form| %>
   <% if comment.errors.any? %>
     <div class="alert alert-danger">
       <h4 class="alert-heading">
         <%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:
       </h4>
       <ul class="mb-0">
-        <% comment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
@@ -17,15 +17,8 @@
     <%= form.text_area :body, class: "form-control", rows: 4, placeholder: "Enter your comment..." %>
   </div>
 
-  <div class="form-group mb-3">
-    <%= form.label :post_id, "Post ID", class: "form-label fw-bold" %>
-    <%= form.text_field :post_id, class: "form-control", placeholder: "Enter the post ID" %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= form.label :user_id, "User ID", class: "form-label fw-bold" %>
-    <%= form.text_field :user_id, class: "form-control", placeholder: "Enter your user ID" %>
-  </div>
+  <%= form.hidden_field :post_id, value: @post.id %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div class="form-group d-flex justify-content-end">
     <%= form.submit "Submit Comment", class: "btn btn-primary btn-lg px-4" %>
